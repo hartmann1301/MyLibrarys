@@ -1,2 +1,2 @@
 # MyLibrarys
-librarys I programmed or modified
+arduino librarys I programmed or modified
