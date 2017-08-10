@@ -8,7 +8,7 @@ void setup() {
 
 void task() {
   Serial.print(millis());
-  Serial.print(" ms: start Task");
+  Serial.println(" ms: start Task");
 
   // wait for something for an unkown time
   delay(random(1, 999));
