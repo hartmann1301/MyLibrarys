@@ -1,0 +1,3 @@
+MillisTimer	KEYWORD1
+resetTo	KEYWORD2
+getTime	KEYWORD2
