@@ -1,3 +1,4 @@
 MillisTimer	KEYWORD1
 resetTo	KEYWORD2
+raiseTo	KEYWORD2
 getTime	KEYWORD2

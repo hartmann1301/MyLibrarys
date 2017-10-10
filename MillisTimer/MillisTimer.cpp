@@ -4,6 +4,10 @@
 #include <MillisTimer.h>
 #include <Arduino.h>
 
+#ifdef USE_SAVEPOWER
+#include <Narcoleptic.h>
+#endif	
+
 /*
  * Constructor initiate the attributes with 0, no need to get Millis because the Timer is not set yet
  */
@@ -12,12 +16,32 @@ MillisTimer::MillisTimer()
 {
 }
 
+
+unsigned long MillisTimer::getMillis() {
+#ifdef USE_SAVEPOWER
+  return Narcoleptic.millis() + millis();
+#else
+  return millis();
+#endif	
+}
+
 /*
  * this Method sets/resets the Timer, when callings this function it expires after >resetValue< milliseconds
  */
-void MillisTimer::resetTo(int resetValue) {
+void MillisTimer::resetTo(int resetValue) {	
+  // save the current time when the times starts
+  m_resetTime =  getMillis(); 
+  
+  // stores values when it should expire
   m_cntValue = resetValue;
-  m_resetTime =  millis(); 
+}
+
+void MillisTimer::raiseTo(int resetValue) {
+
+  if (m_cntValue < resetValue)
+    m_cntValue = resetValue;
+  
+  resetTo(resetValue);
 }
 
 /*
@@ -37,7 +61,7 @@ void MillisTimer::countDown() {
     return;
   
   // get current time
-  unsigned long timeNow = millis();
+  unsigned long timeNow = getMillis();
 
   // decrement the count value
   m_cntValue -= (timeNow - m_resetTime);
