@@ -1,0 +1,9 @@
+OledGraph	KEYWORD1
+addBar	KEYWORD2
+addLine	KEYWORD2
+addDots	KEYWORD2
+drawFrame	KEYWORD2
+drawScale	KEYWORD2
+drawValue	KEYWORD2
+setMaxValue	KEYWORD2
+maxValue	KEYWORD2
