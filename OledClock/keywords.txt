@@ -1,0 +1,5 @@
+OledClock	KEYWORD1
+drawClock	KEYWORD2
+tickPointer	KEYWORD2
+updateClock KEYWORD2
+drawPointer	KEYWORD2
